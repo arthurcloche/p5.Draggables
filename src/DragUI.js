@@ -57,13 +57,14 @@ function DragUI() {
     if (shapeStarted) {
       endShape(CLOSE);
     }
+  };
 
+  this.drawDraggables = () => {
     this.groups.forEach((group) => group.display());
   };
 
   this.handleMousePressed = () => {
     let handled = this.groups.some((group) => group.handleMousePressed());
-    console.log(handled);
     if (!handled) {
       this.deselectAll();
       if (keyIsDown(SHIFT)) this.addGroup();

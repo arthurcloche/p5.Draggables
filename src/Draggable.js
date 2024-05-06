@@ -1,10 +1,11 @@
 function Draggable(x, y, parent) {
   this.position = createVector(x, y);
-  this.radius = 30;
+  this.radius = 15;
   this.parent = parent;
   this.isDragging = false;
 
   this.display = () => {
+    // reserMatrix();
     push();
     strokeWeight(1);
     stroke(0);
@@ -19,7 +20,7 @@ function Draggable(x, y, parent) {
     } else if (this.parent.selected) {
       return this.parent.isContour ? "pink" : "cyan";
     }
-    return color(0);
+    return color(128);
   };
 
   this.isMouseOver = () => {
