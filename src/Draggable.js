@@ -5,6 +5,7 @@ function Draggable(x, y, parent) {
   this.isDragging = false;
 
   this.display = () => {
+    // reserMatrix();
     push();
     strokeWeight(1);
     stroke(0);

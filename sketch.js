@@ -3,10 +3,10 @@ let dragUI;
 
 const init = () => {
   const outside = [
-    [100, 100],
-    [400, 100],
-    [400, 400],
-    [100, 400],
+    [250, 100],
+    [400, 250],
+    [250, 400],
+    [100, 250],
   ];
   const inside = [
     [200, 200],
@@ -25,6 +25,12 @@ function setup() {
   resetButton = createButton("Reset");
   resetButton.mousePressed(init);
   resetButton.position(10, 10);
+
+  resetButton = createButton("Make SVG");
+  resetButton.mousePressed(() => {
+    downloadSVG(dragUI.groups);
+  });
+  resetButton.position(10, 40);
 }
 
 function draw() {
@@ -78,70 +84,7 @@ function draw() {
     pop();
   }
   pop();
-  //   beginShape();
-  //   const start = groups[0].getPoints()[0];
-  //   vertex(start.x, start.y);
-  //   hobbyPoints.forEach(({ startControl, endControl, point }) => {
-  //     bezierVertex(
-  //       startControl.x,
-  //       startControl.y,
-  //       endControl.x,
-  //       endControl.y,
-  //       point.x,
-  //       point.y
-  //     );
-  //   });
-  //   endShape();
-  /*
-  for (let group of groups) {
-    const hobbyPoints = createHobbyBezier(group.getPoints(), {
-      tension: 1,
-      cyclic: true,
-    });
-    if (!shapeStarted || !group.isContour) {
-      if (shapeStarted) {
-        endShape(CLOSE);
-      }
-      beginShape();
-      shapeStarted = true;
-    }
-    if (group.isContour) {
-      beginContour();
-    }
-    vertex(group.getPoints()[0].x, group.getPoints()[0].y);
-    hobbyPoints.forEach(({ startControl, endControl, point }) => {
-      bezierVertex(
-        startControl.x,
-        startControl.y,
-        endControl.x,
-        endControl.y,
-        point.x,
-        point.y
-      );
-    });
-    if (group.isContour) {
-      endContour(CLOSE);
-    }
-  }
-  if (shapeStarted) {
-    endShape(CLOSE);
-  }
-  */
-
   dragUI.drawDraggables();
-
-  /*
-    push();
-		translate(width/2, 0);
-		var hobbyPoints = createHobbyBezier(dragabble, { tension: 1, cyclic: true });
-		beginShape();
-		vertex(dragabble[0].x, dragabble[0].y);
-		hobbyPoints.forEach(({ startControl, endControl, point }) => {
-			bezierVertex(startControl.x, startControl.y, endControl.x, endControl.y, point.x, point.y);
-		});
-		endShape();
-	pop();
-    */
 }
 
 function mousePressed() {
