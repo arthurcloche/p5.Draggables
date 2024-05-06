@@ -1,6 +1,6 @@
 function createSVGPath(groups) {
   let svgContent = "";
-  console.log(groups);
+
   for (let group of groups) {
     const hobbyPoints = createHobbyBezier(group.getPoints(), {
       tension: 1,
