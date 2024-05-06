@@ -54,6 +54,10 @@ function setup() {
   controlsButton = createButton("Show Controls");
   controlsButton.mousePressed(showControls);
   controlsButton.position(10, 70);
+
+  tightnessP = createP("Curve Tightness");
+  tightnessP.style("color", "#FFFFFF").style("font-family", "sans-serif");
+  tightnessP.position(10, 100);
 }
 
 function draw() {
