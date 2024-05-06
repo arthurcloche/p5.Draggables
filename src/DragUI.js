@@ -69,6 +69,7 @@ function DragUI() {
       this.deselectAll();
       if (keyIsDown(SHIFT)) this.addGroup();
     }
+    this.groups = this.groups.filter((group) => group.draggables.length > 2);
   };
 
   this.handleMouseDragged = () => {

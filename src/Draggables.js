@@ -62,11 +62,10 @@ function Draggables(parent) {
     for (let draggable of this.draggables) {
       if (draggable.isMouseOver()) {
         if (keyIsDown(ALT)) {
-          if (this.draggables.length > 3) {
+          if (this.draggables.length > 2) {
             this.draggables.splice(this.draggables.indexOf(draggable), 1);
-          } else {
-            console.log("Group has been removed");
-            return true; // Signal to remove group
+
+            // Signal to remove group
           }
           handled = true;
         } else {
