@@ -20,7 +20,7 @@ const init = () => {
 };
 
 function setup() {
-  createCanvas(1200, 700);
+  createCanvas(windowWidth, windowHeight);
   init();
   resetButton = createButton("Reset");
   resetButton.mousePressed(init);
@@ -97,4 +97,8 @@ function mouseDragged() {
 
 function mouseReleased() {
   dragUI.handleMouseReleased();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
