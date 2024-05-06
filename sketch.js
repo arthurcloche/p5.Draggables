@@ -1,6 +1,25 @@
 let draggableSets;
 let dragUI;
 
+function showControls() {
+  const controlsMessage = `
+p5.draggables prototype
+@arthurcloche, May 2024
+
+--- Controls ---
+
+• Click on a group to select it.
+• Click outside any group to deselect.
+• Click and drag a point to move it within a selected group.
+• With a group selected, click + SHIFT to add a point.
+• With a group selected, click + ALT on a point to remove it. Groups with fewer than 3 points will be deleted.
+• With a group selected and not pointing at a node, click + SHIFT + R to toggle the group as a contour.
+• With no group selected, click + SHIFT to create a new group with four nodes.
+`;
+
+  alert(controlsMessage);
+}
+
 const init = () => {
   const outside = [
     [250, 100],
@@ -26,11 +45,15 @@ function setup() {
   resetButton.mousePressed(init);
   resetButton.position(10, 10);
 
-  resetButton = createButton("Make SVG");
-  resetButton.mousePressed(() => {
+  exportButton = createButton("Make SVG");
+  exportButton.mousePressed(() => {
     downloadSVG(dragUI.groups);
   });
-  resetButton.position(10, 40);
+  exportButton.position(10, 40);
+
+  controlsButton = createButton("Show Controls");
+  controlsButton.mousePressed(showControls);
+  controlsButton.position(10, 70);
 }
 
 function draw() {
